@@ -76,16 +76,29 @@ print('{} accounts unaccessible'.format(len(removedAccounts)))
 
 ## Collect Botometer scores for the remaning accounts
 userList = list(userDf.index)
+
+addionalUsers = list()
+try:
+    with open('../data/demo_addition_users_for_botanalysis.txt', 'r') as fl:
+        for line in fl:
+            addionalUsers.append(line.strip())
+except Exception as e:
+    print(e)
+
+userList.extend(addionalUsers)
+
 toCollect = set(userList) - (set(botometerScores.keys()) | removedAccounts)
 print('{}/{} accounts will be collected'.format(len(toCollect), len(userList)))
 
+currentCount = 0
 for c,uid in enumerate(userList):
     try:
         if uid not in toCollect:
             continue
+        currentCount += 1
 
         result = bom.check_account(uid)
-        print(c, result['user']['id_str'], result['scores'])
+        print(currentCount, c, result['user']['id_str'], result['scores'])
         
         with open(BOTOMETER_SCORE_FILE, 'a') as fl:
             fl.write('{}\n'.format(json.dumps(result)))
@@ -94,7 +107,9 @@ for c,uid in enumerate(userList):
         msg = str(e)
         print('[ERROR]: {}'.format(msg))
 
-        if 'Not authorized' in str(e):
+        if ('Not authorized' in msg or 
+           'no tweets in timeline' in msg or
+           'page does not exist' in msg):
             with open(BOTOMETER_ERROR_FILE, 'a') as fl:
                 fl.write('{}\n'.format(uid))
 
