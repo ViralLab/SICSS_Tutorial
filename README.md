@@ -4,7 +4,9 @@ Tutorial for SICSS-Istanbul
 
 ## File and folder structure
 
-__data__ folder has all the datasets, network files, etc. One of the large tweet file uploaded to Zenodo platform. [Click here to download](http://doi.org/10.5281/zenodo.3900655) Onur Varol. (2020). SICSS - Tutorial Dataset File (Version v1.0.0) [Data set]. Zenodo. http://doi.org/10.5281/zenodo.3900655
+__data__ folder has all the datasets, network files, etc. One of the large tweet file uploaded to Zenodo platform. [Click here to download](http://doi.org/10.5281/zenodo.3900655) 
+
+`Onur Varol. (2020). SICSS - Tutorial Dataset File (Version v1.0.0) [Data set]. Zenodo. http://doi.org/10.5281/zenodo.3900655`
 
 __notebooks__ has the code for the analysis in the form of IPython notebooks
 
