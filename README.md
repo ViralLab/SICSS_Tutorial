@@ -1,6 +1,6 @@
 # SICSS_Tutorial
 
-Tutorial for SICSS-Istanbul 
+Tutorial for SICSS-Istanbul. You can watch the video recording using [this link](https://www.youtube.com/watch?v=7mlVxf6VIVY).
 
 ## File and folder structure
 
